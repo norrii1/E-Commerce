@@ -20,7 +20,7 @@ router.get('/categories/:id', (req, res) => {
   // find one category by its `id` value
   Category.findOne({ 
     where: { 
-      id: req.params 
+      id: req.params.id 
     },
     include: {
       model: Product,
@@ -53,7 +53,7 @@ router.delete('/categories/:id', (req, res) => {
     where: { id:req.params.id } 
   })
   .then(category => res.json(category))
-  .catch(err = console.log(err))
+  .catch(err => console.log(err))
 })
 
 module.exports = router
